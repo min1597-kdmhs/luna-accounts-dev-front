@@ -9,7 +9,7 @@ let _websocket: WebSocket
 onMounted(async () => {
     await $sessionInitlization()
     $QR.data.isActive = true
-    _websocket = new WebSocket(`ws://${ new URL(runtimeConfig.public.apiEndpoint).host }`)
+    _websocket = new WebSocket(`wss://${ new URL(runtimeConfig.public.apiEndpoint).host }`)
     _websocket.onopen = _event => {
         _websocket.onmessage = async _data => {
             const _decodedData = JSON.parse(_data.data)
